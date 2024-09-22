@@ -12,15 +12,33 @@ const LoadItems: React.FC = () => {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        // Simulate fetching from an API with a delay
-        const response = await new Promise<{ id: number; name: string }[]>(
-          (resolve) => setTimeout(() => resolve(MockItems), 1000) // Using mockItems here
+        // Attempt to fetch data from API
+        const apiResponse = await fetch(
+          `https://o9ikkg4p9l.execute-api.us-east-1.amazonaws.com/test/get-cities`
         );
 
-        dispatch(setItems(response)); // Dispatch the items to the store
+        let data;
+
+        if (apiResponse?.ok) {
+          // Parse API response
+          data = await apiResponse.json();
+        } else {
+          // API failed, use local data
+          data = MockItems;
+        }
+
+        // If no data from API, use MockItems array from MockItems.tsx
+        if (!data || data.length === 0) {
+          data = MockItems;
+        }
+
+        // Dispatch the data (whether from API or mock)
+        dispatch(setItems(data));
       } catch (err) {
-        setError("Failed to load items");
+        // On any error, use mock data and set error message
         console.error("Error fetching items:", err);
+        setError("Failed to load items from API. Using local data.");
+        dispatch(setItems(MockItems));
       } finally {
         setLoading(false);
       }

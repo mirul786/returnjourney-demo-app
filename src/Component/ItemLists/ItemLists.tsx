@@ -19,7 +19,7 @@ const ItemList: React.FC = () => {
   // Filter the items based on the search term
   const filteredItems = useMemo(() => {
     return items.filter((item) =>
-      item.name.toLowerCase().includes(searchTerm.toLowerCase())
+      item?.city?.toLowerCase().includes(searchTerm.toLowerCase())
     );
   }, [items, searchTerm]);
 
