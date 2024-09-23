@@ -5,7 +5,7 @@ interface Item {
   city: string;
 }
 
-interface ItemState {
+export interface ItemState {
   items: Item[];
   searchTerm: string;
   currentPage: number;
@@ -37,5 +37,5 @@ const itemSlice = createSlice({
 });
 
 
-export const { setItems, setSearchTerm, setCurrentPage } = itemSlice.actions;
+export const { setItems, setSearchTerm, setCurrentPage, } = itemSlice.actions;
 export default itemSlice.reducer;

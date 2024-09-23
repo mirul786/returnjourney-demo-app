@@ -10,12 +10,11 @@ const SearchBar: React.FC = () => {
   const [inputValue, setInputValue] = useState(searchTerm);
 
   // Use the debounce hook to debounce the search term
-  const debouncedSearchTerm = useDebounce(inputValue, 1000); // 1.5 seconds delay
+  const debouncedSearchTerm = useDebounce(inputValue, 1000); // 1 seconds delay
 
   // Dispatch the debounced value
   useEffect(() => {
     dispatch(setSearchTerm(debouncedSearchTerm));
-    console.log('debounce', debouncedSearchTerm)
   }, [debouncedSearchTerm, dispatch]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

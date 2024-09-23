@@ -18,7 +18,7 @@ const ItemList: React.FC = () => {
 
   // Filter the items based on the search term
   const filteredItems = useMemo(() => {
-    return items.filter((item) =>
+    return items?.filter((item) =>
       item?.city?.toLowerCase().includes(searchTerm.toLowerCase())
     );
   }, [items, searchTerm]);
@@ -28,10 +28,10 @@ const ItemList: React.FC = () => {
   const endIndex = startIndex + itemsPerPage;
 
   // Get the items for the current page
-  const paginatedItems = filteredItems.slice(startIndex, endIndex);
+  const paginatedItems = filteredItems?.slice(startIndex, endIndex);
 
   // Calculate the total number of pages
-  const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
+  const totalPages = Math.ceil(filteredItems?.length / itemsPerPage);
 
   const handlePageChange = useCallback(
     (newPage: number) => {
@@ -43,7 +43,7 @@ const ItemList: React.FC = () => {
   return (
     <div>
       <ul>
-        {paginatedItems.map((item) => (
+        {paginatedItems?.map((item) => (
           <Item key={item.id} item={item} />
         ))}
       </ul>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { act, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setItems } from "../../redux/itemSlice";
 import { AppDispatch } from "../../redux/store";
@@ -28,7 +28,7 @@ const LoadItems: React.FC = () => {
         }
 
         // If no data from API, use MockItems array from MockItems.tsx
-        if (!data || data.length === 0) {
+        if (!data || data?.length === 0) {
           data = MockItems;
         }
 
@@ -40,7 +40,9 @@ const LoadItems: React.FC = () => {
         setError("Failed to load items from API. Using local data.");
         dispatch(setItems(MockItems));
       } finally {
-        setLoading(false);
+        act(() => {
+          setLoading(false);
+        });
       }
     };
 
