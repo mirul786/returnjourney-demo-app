@@ -29,7 +29,7 @@ describe("SearchBar Component", () => {
       </Provider>
     );
 
-    const inputElement = screen.getByPlaceholderText("Search items...");
+    const inputElement = screen.getByPlaceholderText("Search City");
     expect(inputElement).toBeInTheDocument();
   });
 
@@ -43,7 +43,7 @@ describe("SearchBar Component", () => {
       </Provider>
     );
 
-    const inputElement = screen.getByPlaceholderText("Search items...");
+    const inputElement = screen.getByPlaceholderText("Search City");
 
     // Simulate typing into the input field
     fireEvent.change(inputElement, { target: { value: "Mumbai" } });
@@ -62,7 +62,7 @@ describe("SearchBar Component", () => {
       </Provider>
     );
 
-    const inputElement = screen.getByPlaceholderText("Search items...");
+    const inputElement = screen.getByPlaceholderText("Search City");
 
     // Simulate typing into the input field
     fireEvent.change(inputElement, { target: { value: "Agra" } });

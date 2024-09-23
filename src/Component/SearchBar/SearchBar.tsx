@@ -24,7 +24,7 @@ const SearchBar: React.FC = () => {
   return (
     <input
       type="text"
-      placeholder="Search items..."
+      placeholder="Search City"
       value={inputValue}
       onChange={handleChange}
     />

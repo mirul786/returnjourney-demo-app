@@ -19,6 +19,6 @@ test("renders Item Search App heading", () => {
   );
 
   // Update the text to match the current content of the component
-  const headingElement = screen.getByText(/item search app/i);
+  const headingElement = screen.getByText(/search your favourite city/i);
   expect(headingElement).toBeInTheDocument();
 });

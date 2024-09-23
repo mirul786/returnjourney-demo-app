@@ -8,7 +8,7 @@ import './App.css'
 const App: React.FC = () => {
   return (
     <div className="App">
-      <h1>Item Search App</h1>
+      <h1>Search Your Favourite City</h1>
       <ItemsData />
       <SearchBar />
       <ItemLists />

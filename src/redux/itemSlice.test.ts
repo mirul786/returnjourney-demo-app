@@ -5,7 +5,7 @@ describe("itemSlice", () => {
     items: [],
     searchTerm: "",
     currentPage: 1, // matching the actual reducer's default
-    itemsPerPage: 5, // matching the actual reducer's default
+    itemsPerPage: 10, // matching the actual reducer's default
   };
 
   it("should handle initial state", () => {

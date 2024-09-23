@@ -16,7 +16,7 @@ const initialState: ItemState = {
   items: [],
   searchTerm: "",
   currentPage: 1, // Starting from page 1
-  itemsPerPage: 5, // I am displaying 5 items per page (it can be adjusted)
+  itemsPerPage: 10, // I am displaying 5 items per page (it can be adjusted)
 };
 
 const itemSlice = createSlice({
