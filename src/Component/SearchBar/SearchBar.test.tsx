@@ -35,7 +35,7 @@ describe("SearchBar Component", () => {
 
   it("should dispatch setSearchTerm with the debounced value", () => {
     // Mock the debounced value
-    (useDebounce as jest.Mock).mockReturnValueOnce("Apple");
+    (useDebounce as jest.Mock).mockReturnValueOnce("Mumbai");
 
     render(
       <Provider store={store}>
@@ -46,13 +46,13 @@ describe("SearchBar Component", () => {
     const inputElement = screen.getByPlaceholderText("Search items...");
 
     // Simulate typing into the input field
-    fireEvent.change(inputElement, { target: { value: "Apple" } });
+    fireEvent.change(inputElement, { target: { value: "Mumbai" } });
 
     // Wait for debounce
-    expect(useDebounce).toHaveBeenCalledWith("Apple", 1000);
+    expect(useDebounce).toHaveBeenCalledWith("Mumbai", 1000);
 
     const actions = store.getActions();
-    expect(actions).toContainEqual(setSearchTerm("Apple"));
+    expect(actions).toContainEqual(setSearchTerm("Mumbai"));
   });
 
   it("should update the input value when typing", () => {
@@ -65,8 +65,8 @@ describe("SearchBar Component", () => {
     const inputElement = screen.getByPlaceholderText("Search items...");
 
     // Simulate typing into the input field
-    fireEvent.change(inputElement, { target: { value: "Banana" } });
+    fireEvent.change(inputElement, { target: { value: "Agra" } });
 
-    expect(inputElement).toHaveValue("Banana");
+    expect(inputElement).toHaveValue("Agra");
   });
 });
