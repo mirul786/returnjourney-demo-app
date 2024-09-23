@@ -1,5 +1,3 @@
-// mockItems.ts
-
 export const MockItems = [
   {
     id: 1,
